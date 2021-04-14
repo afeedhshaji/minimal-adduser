@@ -8,6 +8,16 @@
 login_def="/etc/login.defs"
 bash_shell="/bin/bash"
 
+# Check dependancies
+function checkDependancy() {
+	if command -v openssl >/dev/null 2>&1; then
+		echo "OpenSSL found"
+		echo "version: $(openssl version)"
+	else
+		echo "OpenSSL not found"
+	fi
+}
+
 # Check if the user is root
 function isRoot() {
 	if [ $(id -u) -ne 0 ]; then
@@ -118,6 +128,8 @@ function addUser() {
 # Main Function
 #
 ########################################################################################
+
+checkDependancy
 
 isRoot
 
