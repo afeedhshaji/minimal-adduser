@@ -11,4 +11,4 @@ USAGE
 ** Warning : The script can only be run as a root user. Use at your own risk! **
 
 Run this command in a root shell
-- wget -O - https://raw.githubusercontent.com/afeedh/minimal-adduser/master/adduser.sh | bash
+- wget -O - https://raw.githubusercontent.com/afeedh/minimal-adduser/master/adduser.sh && chmod +x adduser.sh && bash adduser.sh
