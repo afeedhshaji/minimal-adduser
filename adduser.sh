@@ -7,6 +7,10 @@
 
 login_def="/etc/login.defs"
 bash_shell="/bin/bash"
+salt=$(
+	tr -dc A-Za-z0-9 </dev/urandom | head -c 13
+	echo ''
+)
 
 # Check dependancies
 function checkDependancy() {
@@ -149,7 +153,7 @@ checkUserExists $username
 
 getFreeUidAndGid
 
-encryptPassword $hash_algo $password "2Os3WfYj6YiMQf8i"
+encryptPassword $hash_algo $password $salt
 
 setupHomeDir $username
 
